@@ -63,4 +63,14 @@ full = pd.concat([train.drop(columns='Survived'), test], axis=0, ignore_index=Tr
 # In[8]:
 
 
+# 3. feature engineering
+full['Title'] = full['Name'].apply(extract_title).apply(simplify_title)
+full['FamilySize'] = full['SibSp'] + full['Parch'] + 1
+full['IsAlone'] = (full['FamilySize'] == 1).astype(int)
+full['Deck'] = full['Cabin'].fillna('U').apply(lambda x: str(x)[0] if x != 'U' else 'U')
+# Fare per person (in case of shared tickets)
+full['FarePerPerson'] = full['Fare'] / full['FamilySize']
+
+
+
 
