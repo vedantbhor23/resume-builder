@@ -22,3 +22,19 @@ from sklearn.metrics import accuracy_score, roc_auc_score, confusion_matrix, cla
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+git pull origin main --allow-unrelated-histories
+
+
+
+# In[6]:
+
+
+# 1. load
+train = pd.read_csv(r"D:\ML_Project_Odd_Sem\train.csv")
+test  = pd.read_csv(r"D:\ML_Project_Odd_Sem\test.csv")
+test_passenger_ids = test['PassengerId'].copy()
+
+
+
+# In[7]:
+
